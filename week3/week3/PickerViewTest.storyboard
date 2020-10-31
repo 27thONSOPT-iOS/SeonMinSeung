@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8on-Bk-5Bd">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Picker View TestVC-->
+        <scene sceneID="GVJ-E8-4Wu">
+            <objects>
+                <viewController id="8on-Bk-5Bd" customClass="PickerViewTestVC" customModule="week3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9WJ-wH-AeC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ua4-x2-6pv">
+                                <rect key="frame" x="100" y="124" width="214" height="214"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ua4-x2-6pv" secondAttribute="height" multiplier="1:1" id="hRW-lR-8VH"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DgB-dK-BvW">
+                                <rect key="frame" x="186" y="438" width="42" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sgA-e5-abk">
+                                <rect key="frame" x="0.0" y="630" width="414" height="216"/>
+                            </pickerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tB9-Qw-nZY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ua4-x2-6pv" firstAttribute="top" secondItem="tB9-Qw-nZY" secondAttribute="top" constant="80" id="1fD-FE-AIT"/>
+                            <constraint firstItem="tB9-Qw-nZY" firstAttribute="trailing" secondItem="sgA-e5-abk" secondAttribute="trailing" id="5N5-s4-aGi"/>
+                            <constraint firstItem="DgB-dK-BvW" firstAttribute="top" secondItem="ua4-x2-6pv" secondAttribute="bottom" constant="100" id="HXm-UD-tgo"/>
+                            <constraint firstItem="DgB-dK-BvW" firstAttribute="trailing" secondItem="ua4-x2-6pv" secondAttribute="trailing" id="OAv-Vd-8JR"/>
+                            <constraint firstItem="tB9-Qw-nZY" firstAttribute="trailing" secondItem="ua4-x2-6pv" secondAttribute="trailing" constant="100" id="PQj-vo-C6R"/>
+                            <constraint firstItem="tB9-Qw-nZY" firstAttribute="bottom" secondItem="sgA-e5-abk" secondAttribute="bottom" constant="16" id="R4T-tT-anq"/>
+                            <constraint firstItem="sgA-e5-abk" firstAttribute="leading" secondItem="tB9-Qw-nZY" secondAttribute="leading" id="TQa-vv-TBc"/>
+                            <constraint firstItem="ua4-x2-6pv" firstAttribute="leading" secondItem="tB9-Qw-nZY" secondAttribute="leading" constant="100" id="xYe-Cl-P3V"/>
+                            <constraint firstItem="DgB-dK-BvW" firstAttribute="leading" secondItem="ua4-x2-6pv" secondAttribute="leading" id="z3U-za-Fds"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="partImageView" destination="ua4-x2-6pv" id="PFe-bu-txO"/>
+                        <outlet property="partNameLabel" destination="DgB-dK-BvW" id="6yL-44-95N"/>
+                        <outlet property="partPickerView" destination="sgA-e5-abk" id="H1b-UD-YdL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t22-nD-VDV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-307.24637681159425" y="91.741071428571431"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
