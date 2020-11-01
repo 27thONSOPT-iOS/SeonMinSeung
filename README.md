@@ -20,6 +20,15 @@ ____________
 
 </br>
 
+## :t-rex: Lecture Notes!   
+> 지극히 개인적인 기준으로 작성한 렉추ㅕ 노트들 입니다!  
+> 혹시나 과제하시다가 기억이 안나는 부분들에 대해 제가 도움이 된다면~ 
+> 스타를 눌러주세요 ^^  
+
+- ### [3주차 노트](https://github.com/27thONSOPT-iOS/SeonMinSeung/blob/master/week3.md)
+
+</br>
+
 ## :sparkles: Assignment List!  
 
 </br>
