@@ -10,6 +10,7 @@ import UIKit
 class IntroCollectionViewCell: UICollectionViewCell {
     @IBOutlet var person_image: UIImageView!
     
+    
     @IBOutlet var detail: UILabel!
     @IBOutlet var name: UILabel!
 }

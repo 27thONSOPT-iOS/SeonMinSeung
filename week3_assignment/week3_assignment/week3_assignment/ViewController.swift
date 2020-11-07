@@ -22,6 +22,15 @@ final class ViewController: UIViewController {
     }
     
     private var person_name = ["이주혁","이주혁","이주혁","이주혁","이주혁","이주혁"]
+    private var detail = [
+        "#hereis#아요#내꿈은 #사과농장#ENFP",
+        "#hereis#아요#내꿈은 #사과농장#ENFP",
+        "#hereis#아요#내꿈은 #사과농장#ENFP",
+        "#hereis#아요#내꿈은 #사과농장#ENFP",
+        "#hereis#아요#내꿈은 #사과농장#ENFP",
+        "#hereis#아요#내꿈은 #사과농장#ENFP"
+    ]
+
     @IBOutlet private weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -31,6 +40,13 @@ final class ViewController: UIViewController {
         self.collectionView.delegate=self
         self.collectionView.dataSource=self
         
+//        let layout = UICollectionViewFlowLayout()
+//               layout.scrollDirection = .vertical
+//               layout.sectionInset = UIEdgeInsets(top: 0, left: (view.frame.width - 300)/3, bottom: 0, right: (view.frame.width - 300)/3)
+//               layout.itemSize = CGSize(width: 150, height: 225)
+               
+
+//        collectionView.collectionViewLayout = layout
         
 
     }
@@ -39,19 +55,33 @@ final class ViewController: UIViewController {
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let value = width * 0.4
-        
-        return .init(width: value, height: 250)
+
+        return .init(width: 174, height: 250)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        
+
         let value = (width * 0.2) * 0.4
-        return .init(top: 10, left: value, bottom: 10, right: value)
+        return .init(top: 0, left: 20, bottom: 0, right: 20)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
 }
+
+func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
+        let width: CGFloat = collectionView.frame.width
+        let height: CGFloat = 420
+        return CGSize(width: width, height: height)
+        
+    }
 
 
 extension ViewController: UICollectionViewDataSource{
@@ -64,6 +94,7 @@ extension ViewController: UICollectionViewDataSource{
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "IntroCell", for: indexPath) as? IntroCollectionViewCell {
             cell.name.text = self.person_name[indexPath.row]
             cell.person_image.image = person_image[indexPath.row]
+            cell.detail.text = self.detail[indexPath.row]
             
             return cell
         }
@@ -80,6 +111,9 @@ extension ViewController: UICollectionViewDelegate {
         switch kind{
         case UICollectionView.elementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "IntroHeaderCollectionReusableView", for: indexPath)
+            
+        
+            
             return headerView
         default:
             return UICollectionReusableView()
