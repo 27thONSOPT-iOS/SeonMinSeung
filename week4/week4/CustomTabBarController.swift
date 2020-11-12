@@ -12,7 +12,6 @@ class CustomTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTabs()
-        
     }
     
     func setTabs(){

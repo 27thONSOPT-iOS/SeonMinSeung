@@ -9,7 +9,14 @@ import UIKit
 
 final class ViewController: UIViewController {
     let width = UIScreen.main.bounds.width
-
+    let horizonInset: CGFloat = 24.0
+    let topInset: CGFloat = 11.0
+    let bottomInset: CGFloat = 50
+    
+    let itemSpacing: CGFloat = 27.0
+    let lineSpacing: CGFloat = 5
+    
+    
     private var person_image: [UIImage] {
         var person_image:[UIImage] = []
         for i in 0...6 {
@@ -35,18 +42,11 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        
+        self.view.backgroundColor = .black
+        self.tabBarController?.tabBar.backgroundColor = .white
+
         self.collectionView.delegate=self
         self.collectionView.dataSource=self
-        
-//        let layout = UICollectionViewFlowLayout()
-//               layout.scrollDirection = .vertical
-//               layout.sectionInset = UIEdgeInsets(top: 0, left: (view.frame.width - 300)/3, bottom: 0, right: (view.frame.width - 300)/3)
-//               layout.itemSize = CGSize(width: 150, height: 225)
-               
-
-//        collectionView.collectionViewLayout = layout
         
 
     }
@@ -57,21 +57,26 @@ final class ViewController: UIViewController {
 extension ViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        return .init(width: 174, height: 250)
+        let screenWidth = collectionView.frame.width
+        let cellWidth = (screenWidth - horizonInset * 2 - itemSpacing) / 2
+        
+        let screenHeight = UIScreen.main.bounds.height
+        let cellHeight = 225/812 * screenHeight
+        
+        return .init(width: cellWidth, height: cellHeight)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
 
-        let value = (width * 0.2) * 0.4
-        return .init(top: 0, left: 20, bottom: 0, right: 20)
+        return .init(top: topInset, left: horizonInset, bottom: bottomInset, right: horizonInset)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return lineSpacing
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInterItemSpacingForSectionAt section: Int) -> CGFloat {
+        return itemSpacing
     }
+    
     
 }
 
@@ -112,8 +117,7 @@ extension ViewController: UICollectionViewDelegate {
         case UICollectionView.elementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "IntroHeaderCollectionReusableView", for: indexPath)
             
-        
-            
+
             return headerView
         default:
             return UICollectionReusableView()
@@ -122,3 +126,5 @@ extension ViewController: UICollectionViewDelegate {
     
     }
 }
+
+
